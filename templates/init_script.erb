@@ -9,6 +9,16 @@
 # Description:       TeamCity Build Agent
 ### END INIT INFO
 
+if [[ -f /etc/redhat-release ]]; then
+  function status_of_proc() {
+    /home/teamcity/buildAgent/bin/agent.sh status
+  }
+  # TODO(tlim): Create a real "status" function.
+else
+  . /lib/init/vars.sh
+  . /lib/lsb/init-functions
+fi
+
 set -e
 
 PATH=/sbin:/bin:/usr/bin
@@ -16,9 +26,6 @@ USER=<%= @user %>
 SCRIPT=/home/<%= @user %>/buildAgent/bin/agent.sh
 NAME=<%= @service %>
 PIDFILE=/home/<%= @user %>/buildAgent/logs/buildAgent.pid
-
-. /lib/init/vars.sh
-. /lib/lsb/init-functions
 
 case "$1" in
     start)
