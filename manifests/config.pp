@@ -8,6 +8,7 @@ class teamcity_agent::config inherits teamcity_agent {
     replace => 'no',
     source  => 'puppet:///modules/teamcity_agent/buildAgent.properties',
     owner   => $user,
+    mode    => 0644
   }
 
   # Have the latest properties augeas lens available for configuring properties files
