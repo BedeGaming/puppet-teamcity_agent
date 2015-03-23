@@ -6,6 +6,7 @@ Type=simple
 User=<%= @user %>
 Group=<%= @user %>
 ExecStart=/home/<%= @user %>/buildAgent/bin/agent.sh "start"
+RemainAfterExit=yes
 Restart=always
 
 [Install]
