@@ -8,6 +8,8 @@ Group=<%= @user %>
 ExecStart=/home/<%= @user %>/buildAgent/bin/agent.sh "start"
 RemainAfterExit=yes
 Restart=always
+PIDFile=/home/<%= @user %>/buildAgent/logs/buildAgent.pid
+KillSignal=SIGKILL
 
 [Install]
 WantedBy=multi-user.target
