@@ -1,4 +1,8 @@
-class teamcity_agent::service inherits teamcity_agent {
+class teamcity_agent::service (
+
+  $service = $teamcity_agent::service,
+  
+) {
 
   service { $service:
     ensure     => running,

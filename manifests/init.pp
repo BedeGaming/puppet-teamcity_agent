@@ -37,8 +37,11 @@
 #
 class teamcity_agent(
 
-  $user        = $teamcity_agent::params::user,
-  $service     = $teamcity_agent::params::service,
+  $user             = $teamcity_agent::params::user,
+  $service          = $teamcity_agent::params::service,
+  $service_path     = $teamcity_agent::params::service_path,
+  $service_file     = $teamcity_agent::params::service_file,
+  $service_template = $teamcity_agent::params::service_template,
 
   $server_url  = $teamcity_agent::params::server_url,
   $agent_name  = $teamcity_agent::params::agent_name,

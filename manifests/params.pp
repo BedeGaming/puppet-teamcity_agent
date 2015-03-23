@@ -12,4 +12,20 @@ class teamcity_agent::params {
   $wget        = '/usr/bin/wget'
   $unzip       = '/usr/bin/unzip'
 
+  case $::osfamily {
+    'RedHat': {
+        $service_path = $::operatingsystemmajrelease ? {
+            /(5|6)/ => '/etc/init.d',
+            /(7)/   => '/lib/systemd/system',
+        }
+        $service_file = $::operatingsystemmajrelease ? {
+            /(5|6)/ => "${service}",
+            /(7)/   => "${service}.service",
+        }
+        $service_template = $::operatingsystemmajrelease ? {
+            /(5|6)/ => 'teamcity_agent/init_script.erb',
+            /(7)/   => 'teamcity_agent/systemd_script.erb'
+        }
+    }
+  }
 }

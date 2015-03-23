@@ -1,0 +1,12 @@
+[Unit]
+Description=<%= @service %>
+
+[Service]
+Type=simple
+User=<%= @user %>
+Group=<%= @user %>
+ExecStart=/home/<%= @user %>/buildAgent/bin/agent.sh "start"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

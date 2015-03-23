@@ -1,4 +1,18 @@
-class teamcity_agent::config inherits teamcity_agent {
+class teamcity_agent::config (
+  
+  $wget             = $teamcity_agent::wget,
+  $unzip            = $teamcity_agent::unzip,
+  $server_url       = $teamcity_agent::server_url,
+  $user             = $teamcity_agent::user,
+  $agent_name       = $teamcity_agent::agent_name,
+  $own_address      = $teamcity_agent::own_address,
+  $own_port         = $teamcity_agent::own_port,
+  $service          = $teamcity_agent::service,
+  $service_path     = $teamcity_agent::service_path,
+  $service_file     = $teamcity_agent::service_file,
+  $service_template = $teamcity_agent::service_template,
+  
+) {
 
   $propfile = "/home/${user}/buildAgent/conf/buildAgent.properties"
 
@@ -42,9 +56,9 @@ class teamcity_agent::config inherits teamcity_agent {
     mode => '0755',
   }
 
-  file { "/etc/init.d/${service}":
+  file { "${service_path}/${service_file}":
     ensure  => 'present',
-    content => template('teamcity_agent/init_script.erb'),
+    content => template($service_template),
     mode    => '0755',
   }
 
