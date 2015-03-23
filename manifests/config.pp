@@ -11,6 +11,7 @@ class teamcity_agent::config (
   $service_path     = $teamcity_agent::service_path,
   $service_file     = $teamcity_agent::service_file,
   $service_template = $teamcity_agent::service_template,
+  $properties       = $teamcity_agent::properties,
   
 ) {
 
