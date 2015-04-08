@@ -52,6 +52,8 @@ class teamcity_agent(
   $wget        = $teamcity_agent::params::wget,
   $unzip       = $teamcity_agent::params::unzip,
 
+  $javapackage = $teamcity_agent::params::javapackage,
+
 ) inherits teamcity_agent::params {
 
   include '::teamcity_agent::requirements'

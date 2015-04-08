@@ -1,0 +1,11 @@
+{
+  "author": "eirc",
+  "dependencies": [],
+  "description": "",
+  "license": "Apache License, Version 2.0",
+  "name": "eirc-teamcity_agent",
+  "project_page": "https://github.com/eirc/puppet-teamcity_agent",
+  "source": "https://github.com/eirc/puppet-teamcity_agent",
+  "summary": "Puppet module for installing a teamcity agent.",
+  "version": "0.2.0"
+}

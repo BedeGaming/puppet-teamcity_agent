@@ -27,4 +27,12 @@ class teamcity_agent::install (
   Exec[$download_command] ->
     Exec[$unzip_command]
 
+  file { "/home/${user}/buildAgent/logs":
+    ensure  => directory,
+    mode    => '0775',
+    owner   => $user,
+    group   => $user,
+    require => Exec[$unzip_command],
+  }
+
 }
