@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class teamcity_agent::config (
   
   $wget             = $teamcity_agent::wget,
@@ -15,10 +14,6 @@ class teamcity_agent::config (
   $properties       = $teamcity_agent::properties,
   
 ) {
-=======
-#
-class teamcity_agent::config inherits teamcity_agent {
->>>>>>> 33af2eb7324a06f9e1841889cc24b4921b5e8c73
 
   # TODO(tlimoncelli): store the port number in
   # /home/${user}/buildAgent/logs/buildAgent.port
@@ -34,18 +29,15 @@ class teamcity_agent::config inherits teamcity_agent {
     mode    => '0644',
     replace => 'no',
     source  => 'puppet:///modules/teamcity_agent/buildAgent.properties',
-<<<<<<< HEAD
-    owner   => $user,
-    mode    => 0644
-=======
     require => Class['teamcity_agent::install'],
->>>>>>> 33af2eb7324a06f9e1841889cc24b4921b5e8c73
   }
+
   # FIXME(tlimoncelli): Consider creating $propfile file by copying
   #   /home/teamcity/buildAgent/conf/buildAgent.dist.properties
 
   # Have the latest properties augeas lens available for configuring properties files
   $lens = '/usr/share/augeas/lenses/propertieslatest.aug'
+
   file { $lens:
     ensure => file,
     owner  => $user,
@@ -81,15 +73,9 @@ class teamcity_agent::config inherits teamcity_agent {
     mode => '0755',
   }
 
-<<<<<<< HEAD
   file { "${service_path}/${service_file}":
-    ensure  => 'present',
+    ensure  => 'file',
     content => template($service_template),
-=======
-  file { "/etc/init.d/${service}":
-    ensure  => file,
-    content => template('teamcity_agent/init_script.erb'),
->>>>>>> 33af2eb7324a06f9e1841889cc24b4921b5e8c73
     mode    => '0755',
   }
 

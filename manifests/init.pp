@@ -42,16 +42,13 @@ class teamcity_agent(
   $service_path     = $teamcity_agent::params::service_path,
   $service_file     = $teamcity_agent::params::service_file,
   $service_template = $teamcity_agent::params::service_template,
-
   $server_url  = $teamcity_agent::params::server_url,
   $agent_name  = $teamcity_agent::params::agent_name,
   $own_address = $teamcity_agent::params::own_address,
   $own_port    = $teamcity_agent::params::own_port,
   $properties  = $teamcity_agent::params::properties,
-
   $wget        = $teamcity_agent::params::wget,
   $unzip       = $teamcity_agent::params::unzip,
-
   $javapackage = $teamcity_agent::params::javapackage,
 
 ) inherits teamcity_agent::params {
