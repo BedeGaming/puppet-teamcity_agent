@@ -8,6 +8,7 @@ class teamcity_agent::params {
   $own_address = 'localhost'
   $own_port    = '9090'
   $properties  = { }
+  $limitnofile = '20142'
 
   $wget        = '/usr/bin/wget'
   $unzip       = '/usr/bin/unzip'
